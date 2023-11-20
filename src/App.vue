@@ -1,35 +1,63 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-<!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <TimeBox msg="Тут будет время" />
-  <ItemBox data={{[1,2,3]}} />
-<!--  <IncrementBtn  />-->
+  <div class="app">
+    <form>
+      <h4>Создание Поста</h4>
+      <input type="text" placeholder="Название">
+      <input type="text" placeholder="Описание">
+      <button>Добавить</button>
+    </form>
+    <div class="post" v-for="post in posts" v-bind:key="post.id">
+      <div><strong>Название:</strong> Пост о {{post.title}}</div>
+      <div><strong>Описание:</strong> {{post.body}}</div>
+    </div>
+  </div>
+
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import TimeBox from './components/TimeBox.vue'
-import ItemBox from './components/ItemBox.vue'
-// import IncrementBtn from './components/IncrementBtn.vue'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld,
-    TimeBox,
-    ItemBox
-    // IncrementBtn
+  },
+  data() {
+    return {
+      posts: [
+        {id:1, title: "JavaScript", body: "Описание раз"},
+        {id:2, title: "Java", body: "Описание два"},
+        {id:3, title: "Python", body: "Описание три"},
+      ]
+    }
+  },
+  methods: {
+
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+.app {
+  padding: 10px;
+}
+.post {
+  margin-top: 10px;
+  padding: 15px;
+  border: solid #42b983 2px;
+}
+form {
+  padding: 15px;
+  border: solid #95b942 2px;
+}
+form * {
+  margin-top: 10px;
+}
+input{
+  width: 100%;
+}
+
 </style>

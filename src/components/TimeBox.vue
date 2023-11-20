@@ -15,15 +15,15 @@
 export default {
   name: "TimeBox",
   props: {
-    // msg: String
+    msg: Array
   },
   data() {
     return {
       text1: (() => {
-        var today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        var yyyy = today.getFullYear();
+        let today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
 
         today = mm + '/' + dd + '/' + yyyy;
           return today
