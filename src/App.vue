@@ -1,8 +1,12 @@
 
 <template>
   <div class="app">
-    <PostForm/>
-    <PostList :posts="posts"/>
+    <PostForm
+        @create="createPost"
+    />
+    <PostList
+        :posts="posts"
+    />
 
   </div>
 
@@ -25,16 +29,12 @@ export default {
         {id:2, title: "Java", body: "Описание два"},
         {id:3, title: "Python", body: "Описание три"},
       ],
-      title: '',
-      body: '',
     }
   },
   methods: {
-    createPost () {
-      this.posts.push({id: Date.now(),title: this.title, body: this.body})
-      this.title = ''
-      this.body = ''
-    },
+    createPost(post) {
+      this.posts.push(post)
+    }
   }
 }
 </script>
