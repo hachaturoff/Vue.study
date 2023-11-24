@@ -6,7 +6,7 @@
       <div><strong>Описание:</strong> {{ post.body }}</div>
     </div>
     <div class="post__btns">
-      <MyButton @click="deletePost">Удалить</MyButton>
+      <MyButton @click="$emit('remove', this.post)">Удалить</MyButton>
     </div>
   </div>
 </template>
@@ -23,10 +23,6 @@ export default {
     }
   },
   methods: {
-    deletePost() {
-      this.$emit('delete', this.post.id)
-      // console.log(this.post.id)
-    }
   }
 }
 </script>

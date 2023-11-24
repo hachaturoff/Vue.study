@@ -40,7 +40,7 @@ export default {
 <style scoped>
 form {
   padding: 15px;
-  border: solid #95b942 2px;
+  /*border: solid #95b942 2px;*/
 }
 form * {
   margin-top: 10px;

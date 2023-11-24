@@ -1,12 +1,20 @@
 
 <template>
   <div class="app">
-    <PostForm
-        @create="createPost"
-    />
+    <h1>Страница с постами</h1>
+    <MyButton
+      @click="showDialog">
+      Добавить Пост
+    </MyButton>
+    <MyDialog
+        v-model:show="this.dialogVisible" >
+      <PostForm
+          @create="createPost"
+      />
+    </MyDialog>
     <PostList
         :posts="posts"
-        @delete="deletePost"
+        @remove="deletePost"
     />
 
   </div>
@@ -30,16 +38,20 @@ export default {
         {id:2, title: "Java", body: "Описание два"},
         {id:3, title: "Python", body: "Описание три"},
       ],
+      dialogVisible: true
     }
   },
   methods: {
     createPost(post) {
-      this.posts.push(post)
+      this.posts.push(post),
       // console.log('sda')
+      this.dialogVisible = false
     },
-    deletePost(id) {
-      this.posts = this.posts.filter(post => post.id !== id)
-      console.log(this.posts)
+    deletePost(post) {
+      this.posts = this.posts.filter(item => item.id !== post.id)
+    },
+    showDialog() {
+      this.dialogVisible = true
     }
   }
 }
