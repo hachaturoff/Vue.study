@@ -6,6 +6,7 @@
     />
     <PostList
         :posts="posts"
+        @delete="deletePost"
     />
 
   </div>
@@ -34,6 +35,11 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post)
+      // console.log('sda')
+    },
+    deletePost(id) {
+      this.posts = this.posts.filter(post => post.id !== id)
+      console.log(this.posts)
     }
   }
 }

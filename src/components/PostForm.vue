@@ -1,15 +1,15 @@
 <template>
   <form @submit.prevent>
     <h4>Создание Поста</h4>
-    <input
+    <MyTextInput
         v-model="post.title"
         type="text"
-        placeholder="Название">
-    <input
+        placeholder="Название"/>
+    <MyTextInput
         v-model="post.body"
         type="text"
-        placeholder="Описание">
-    <button @click="createPost">Добавить</button>
+        placeholder="Описание"/>
+    <MyButton @click="createPost">Добавить</MyButton>
   </form>
 </template>
 
